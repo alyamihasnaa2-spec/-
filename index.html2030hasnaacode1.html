@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>منصة التطوع - المسؤول</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+}
+
+.container {
+    background: white;
+    width: 370px;
+    padding: 30px 25px;
+    border-radius: 30px 30px 0 0;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    margin: 10px 0;
+    color: #222;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 25px;
+    background: #e0e0e0;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #111;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.back-btn {
+    background: #999;
+}
+
+.event-card {
+    background: #f2f2f2;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 12px;
+    text-align: right;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- تسجيل دخول المسؤول -->
+<div class="container" id="loginAdmin">
+    <h2>تسجيل دخول المسؤول</h2>
+    <div class="subtitle">الرجاء إدخال البيانات</div>
+
+    <input type="text" placeholder="البريد الإلكتروني">
+    <input type="password" placeholder="كلمة المرور">
+
+    <button onclick="login()">دخول</button>
+</div>
+
+<!-- صفحة الترحيب للمسؤول -->
+<div class="container hidden" id="welcomeAdmin">
+    <h2>مرحبًا فلوه الهتيله 🌸</h2>
+    <div class="subtitle">بالعمل التطوعي نصنع الأثر معًا</div>
+
+    <button onclick="showEvaluation()">التالي</button>
+    <button class="back-btn" onclick="logout()">تسجيل الخروج</button>
+</div>
+
+<!-- صفحة تقييم الطالبات -->
+<div class="container hidden" id="evaluationPage">
+    <h2>تقييم الطالبات</h2>
+
+    <div class="event-card">
+        <strong>حسناء اليامي</strong><br>
+        التقييم: <span style="color:#c0392b;font-weight:bold">إنذار أول</span>
+        <p>الملاحظات: عدم الحضور</p>
+    </div>
+
+    <div class="event-card">
+        <strong>رندا آل منصور</strong><br>
+        التقييم: <span style="color:#e67e22;font-weight:bold">إنذاران</span>
+        <p>الملاحظات: تكرار الغياب</p>
+    </div>
+
+    <div class="event-card">
+        <strong>لميس اليامي</strong><br>
+        التقييم: ⭐⭐⭐⭐⭐
+        <p>الملاحظات: طالبة متميزة</p>
+    </div>
+
+    <div class="event-card">
+        <strong>مناهل لسلوم</strong><br>
+        التقييم: ⭐⭐⭐☆☆
+        <p>الملاحظات: أداء جيد</p>
+    </div>
+
+    <button onclick="showBus()">التالي</button>
+    <button class="back-btn" onclick="logout()">تسجيل الخروج</button>
+</div>
+
+<!-- صفحة الباص -->
+<div class="container hidden" id="busPage">
+    <h2>المسجلات في الباص رقم 38</h2>
+    <div class="subtitle">مبنى 38</div>
+
+    <div class="event-card"><strong>حسناء اليامي</strong></div>
+    <div class="event-card"><strong>لميس اليامي</strong></div>
+    <div class="event-card"><strong>مناهل لسلوم</strong></div>
+    <div class="event-card"><strong>سارة الغامدي</strong></div>
+    <div class="event-card"><strong>نورة العتيبي</strong></div>
+    <div class="event-card"><strong>إيمان الحربي</strong></div>
+    <div class="event-card"><strong>هدى القرني</strong></div>
+    <div class="event-card"><strong>عائشة الفهمي</strong></div>
+    <div class="event-card"><strong>زينب الحربي</strong></div>
+    <div class="event-card"><strong>فاطمة الشمري</strong></div>
+
+    <button class="back-btn" onclick="logout()">تسجيل الخروج</button>
+</div>
+
+<script>
+function login() {
+    document.getElementById("loginAdmin").classList.add("hidden");
+    document.getElementById("welcomeAdmin").classList.remove("hidden");
+}
+
+function showEvaluation() {
+    document.getElementById("welcomeAdmin").classList.add("hidden");
+    document.getElementById("evaluationPage").classList.remove("hidden");
+}
+
+function showBus() {
+    document.getElementById("evaluationPage").classList.add("hidden");
+    document.getElementById("busPage").classList.remove("hidden");
+}
+
+function logout() {
+    document.getElementById("welcomeAdmin").classList.add("hidden");
+    document.getElementById("evaluationPage").classList.add("hidden");
+    document.getElementById("busPage").classList.add("hidden");
+    document.getElementById("loginAdmin").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
