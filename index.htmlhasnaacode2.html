@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>منصة التطوع الجامعية</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+}
+
+.container {
+    background: white;
+    width: 370px;
+    padding: 30px 25px;
+    border-radius: 30px 30px 0 0;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+/* الشعار */
+.logo-box {
+    width: 95px;
+    height: 95px;
+    background: white;
+    border-radius: 22px;
+    margin: -95px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.logo-box img {
+    width: 75px;
+}
+
+/* العناوين */
+h2 {
+    margin: 10px 0;
+    color: #222;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* الحقول */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 25px;
+    background: #e0e0e0;
+    font-size: 14px;
+}
+
+/* الأزرار */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #111;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #333;
+}
+
+.back-btn {
+    background: #999;
+}
+
+/* كرت الفعالية */
+.event-card {
+    background: #f2f2f2;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.event-card strong {
+    font-size: 15px;
+}
+
+.event-card p {
+    margin: 4px 0;
+}
+
+.event-card button {
+    margin-top: 10px;
+    background: #0a74da;
+}
+
+.event-card button:hover {
+    background: #085ea3;
+}
+</style>
+</head>
+
+<body>
+
+<!-- صفحة تسجيل الدخول -->
+<div class="container" id="loginPage">
+    <div class="logo-box">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGH0lEQVR4nO3dS47bMBBF0e8yKXQZ3J1xgJk5Qx1k7QZcQKJb7A5FJQhRk2Kkq1bM3J8F4+8pJQkqK+e6J8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPxL9n6l8Z3H9zv+gQK+8Z5n8+4H0+6E6f3Zy0J7c2n6d5x7kz8z9m9H0M5l5cH1K7m4r7r8s5k7Zxv7eZc8o9M3mH2m6o+X6Zp9l8m2n8Z9q9N0b3r8z7m5b7m8+7k3n7p3Z8n8N2s9n7G9k8Z6q+e7d9b7n+e9P8o7d+Y7r8+5n9m7p7X9u7n+Z7+e8r7n+Y8o9b7r+Z7+f9N9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8f/wC3E3Pq+N1aAAAAABJRU5ErkJggg==" alt="Najran University Logo">
+    </div>
+
+    <h2>تسجيل دخول الطالب</h2>
+    <div class="subtitle">أدخل بياناتك للمتابعة</div>
+
+    <input type="text" placeholder="البريد أو الرقم الجامعي">
+    <input type="password" placeholder="كلمة المرور">
+
+    <button onclick="loginStudent()">دخول</button>
+</div>
+
+<!-- صفحة الترحيب -->
+<div class="container hidden" id="welcomePage">
+    <h2>مرحبًا بك حسناء 🌸</h2>
+    <div class="subtitle">بالعمل التطوعي نصنع الأثر معًا</div>
+    <button onclick="showEvents()">التالي</button>
+</div>
+
+<!-- صفحة الفعاليات -->
+<div class="container hidden" id="eventsPage">
+    <h2>الفعاليات التطوعية</h2>
+    <div class="subtitle">اختر الفعالية المناسبة لك</div>
+
+    <div class="event-card">
+        <strong>تنظيم ملتقى طلابي</strong>
+        <p>المسؤول: فلوه الهتيله</p>
+        <p>الوقت: 10:00 ص – 3:00 م</p>
+        <p>عدد المتطوعين المطلوب: 10</p>
+        <p>الموقع: مكتبة الأمير مشعل</p>
+        <button onclick="registerEvent('تنظيم ملتقى طلابي')">تسجيل بالفعالية</button>
+    </div>
+
+    <div class="event-card">
+        <strong>استقبال زوار الجامعة</strong>
+        <p>المسؤول: فلوه الهتيله</p>
+        <p>الوقت: 2:00 م – 5:00 م</p>
+        <p>عدد المتطوعين المطلوب: 8</p>
+        <p>الموقع: قاعة المؤتمرات</p>
+        <button onclick="registerEvent('استقبال زوار الجامعة')">تسجيل بالفعالية</button>
+    </div>
+
+    <button onclick="showBus()">التالي</button>
+</div>
+
+<!-- صفحة الباص -->
+<div class="container hidden" id="busPage">
+    <h2>تسجيل الباصات</h2>
+    <div class="subtitle">اختر المبنى الذي ترغب بالتسجيل فيه</div>
+
+    <!-- مبنى 38 -->
+    <div class="event-card"><strong>مبنى 38</strong>
+        <button onclick="registerBus(38)">تسجيل بالباص</button>
+    </div>
+
+    <!-- مبنى 27 -->
+    <div class="event-card">
+        <strong>مبنى 27</strong>
+        <button onclick="registerBus(27)">تسجيل بالباص</button>
+    </div>
+
+    <!-- مبنى 15 -->
+    <div class="event-card">
+        <strong>مبنى 15</strong>
+        <button onclick="registerBus(15)">تسجيل بالباص</button>
+    </div>
+</div>
+
+<script>
+function loginStudent() {
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("welcomePage").classList.remove("hidden");
+}
+
+function showEvents() {
+    document.getElementById("welcomePage").classList.add("hidden");
+    document.getElementById("eventsPage").classList.remove("hidden");
+}
+
+function showBus() {
+    document.getElementById("eventsPage").classList.add("hidden");
+    document.getElementById("busPage").classList.remove("hidden");
+}
+
+function registerEvent(eventName) {
+    alert("تم تسجيلك بالفعالية '" + eventName + "' بنجاح ✅");
+}
+
+function registerBus(buildingNumber) {
+    alert("تم تسجيلك في الباص لمبنى " + buildingNumber + " بنجاح ✅");
+}
+</script>
+
+</body>
+</html>
